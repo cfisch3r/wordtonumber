@@ -25,7 +25,7 @@ public class Word2NumberTest {
     }
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         word2Number = new Word2Number(initializeNumberMap());
     }
 
