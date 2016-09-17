@@ -2,6 +2,7 @@ package de.itemis.word2number;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class Word2Number {
 
@@ -12,12 +13,10 @@ public class Word2Number {
     }
 
     public int convert(String statement) {
-        String[] words = statement.split(" ");
-        if (words.length == 2) {
-            return numberFor(words[0], words[1]);
-        } else {
-            return numberFor(words[0]);
-        }
+        Scanner scanner = new Scanner(statement);
+        String word = scanner.next();
+
+        return scanner.hasNext() ? numberFor(word, scanner.next()) : numberFor(word);
     }
 
     private int numberFor(String firstWord, String secondWord) {
