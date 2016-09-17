@@ -35,12 +35,12 @@ public class Word2NumberTest {
     }
 
     @Test
-    public void convertsWordPairWithSecondPartLowerThanFirstToNumber() {
+    public void convertsWordPairForTwoDigitNumber() {
         assertEquals(33, word2Number.convert("thirty three"));
     }
 
     @Test
-    public void convertsWordPairWithSecondPartHigherThanFirstToNumber() {
+    public void convertsWordPairForHigherDigitNumber() {
         assertEquals(300, word2Number.convert("three hundred"));
     }
 

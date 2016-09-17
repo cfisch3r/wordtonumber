@@ -13,15 +13,16 @@ public class Word2Number {
 
     public int convert(String statement) {
         Scanner scanner = new Scanner(statement);
-        if (scanner.hasNext()) {
-            return convert(scanner, scanner.next(), 0);
+        if (!scanner.hasNext()) {
+            throw new IllegalArgumentException("Empty String cannot be converted.");
         }
-        throw new IllegalArgumentException("Empty String cannot be converted.");
+        return convert(scanner, 0);
     }
 
-    private int convert(Scanner scanner, String word, int result) {
-        result += scanner.hasNext() ? numberFor(word, scanner.next()) : numberFor(word);
-        return scanner.hasNext()? convert(scanner,scanner.next(),result): result;
+    private int convert(Scanner scanner, int number) {
+        String word = scanner.next();
+        number += scanner.hasNext() ? numberFor(word, scanner.next()) : numberFor(word);
+        return scanner.hasNext()? convert(scanner,number): number;
     }
 
     private int numberFor(String firstWord, String secondWord) {
