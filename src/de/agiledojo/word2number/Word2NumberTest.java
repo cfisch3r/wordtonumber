@@ -1,4 +1,4 @@
-package de.itemis.word2number;
+package de.agiledojo.word2number;
 
 import org.junit.Before;
 import org.junit.Rule;

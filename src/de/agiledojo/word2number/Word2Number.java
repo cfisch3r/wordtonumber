@@ -1,4 +1,4 @@
-package de.itemis.word2number;
+package de.agiledojo.word2number;
 
 import java.util.Map;
 import java.util.Scanner;
