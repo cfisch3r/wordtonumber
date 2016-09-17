@@ -29,4 +29,9 @@ public class Word2NumberTest {
     public void convertsWordPairWithSecondPartHigherThanFirstToNumber() {
         assertEquals(300, word2Number.convert("three hundred"));
     }
+
+    @Test
+    public void convertsWordCombinationToNumber() {
+        assertEquals(303, word2Number.convert("three hundred three"));
+    }
 }
