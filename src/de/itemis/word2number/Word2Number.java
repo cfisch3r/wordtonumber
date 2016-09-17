@@ -13,7 +13,10 @@ public class Word2Number {
 
     public int convert(String statement) {
         Scanner scanner = new Scanner(statement);
-        return convert(scanner, scanner.next(), 0);
+        if (scanner.hasNext()) {
+            return convert(scanner, scanner.next(), 0);
+        }
+        throw new IllegalArgumentException();
     }
 
     private int convert(Scanner scanner, String word, int result) {

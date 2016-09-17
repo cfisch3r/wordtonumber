@@ -44,4 +44,9 @@ public class Word2NumberTest {
     public void convertsWordCombinationToNumber() {
         assertEquals(303, word2Number.convert("three hundred three"));
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void throwsExceptionForEmptyStatement() {
+        word2Number.convert("");
+    }
 }
