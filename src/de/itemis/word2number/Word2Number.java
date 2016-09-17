@@ -16,7 +16,7 @@ public class Word2Number {
         if (scanner.hasNext()) {
             return convert(scanner, scanner.next(), 0);
         }
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException("Empty String cannot be converted.");
     }
 
     private int convert(Scanner scanner, String word, int result) {
@@ -33,6 +33,9 @@ public class Word2Number {
     }
 
     private Integer numberFor(String word) {
+        if (!numberMap.containsKey(word)) {
+            throw new IllegalArgumentException("Cannot find a number for '" + word +"'.");
+        }
         return numberMap.get(word);
     }
 

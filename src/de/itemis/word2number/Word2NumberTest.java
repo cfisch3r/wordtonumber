@@ -1,7 +1,9 @@
 package de.itemis.word2number;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,6 +11,8 @@ import java.util.Map;
 import static org.junit.Assert.assertEquals;
 
 public class Word2NumberTest {
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
 
     private Word2Number word2Number;
 
@@ -45,8 +49,17 @@ public class Word2NumberTest {
         assertEquals(303, word2Number.convert("three hundred three"));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void throwsExceptionForEmptyStatement() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Empty String cannot be converted.");
         word2Number.convert("");
+    }
+
+    @Test
+    public void throwsExceptionWhenWordCannotBeFound() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Cannot find a number for 'noNumber'.");
+        word2Number.convert("noNumber");
     }
 }
